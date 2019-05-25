@@ -19,14 +19,14 @@ export class PlacesService {
       'p2',
       'Houston',
       'In the heart of New York City',
-      'image url',
+      'https://s-ec.bstatic.com/images/hotel/max1024x768/134/134893089.jpg',
       200.99
     ),
     new Place(
       'p3',
       'LA',
       'In the heart of New York City',
-      'image url',
+      'https://c8.alamy.com/comp/CC68T2/paris-france-small-business-shops-mercerie-de-la-nation-sewing-store-CC68T2.jpg',
       999.99
     )
   ];
