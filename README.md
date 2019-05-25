@@ -1,2 +1,0 @@
-# ionic-pwa
-ionic-pwa
