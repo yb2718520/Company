@@ -24,3 +24,4 @@ const routes: Routes = [
   declarations: [DiscoverPage]
 })
 export class DiscoverPageModule {}
+

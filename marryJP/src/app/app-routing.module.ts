@@ -13,7 +13,7 @@ const routes: Routes = [
   // { path: 'edit', loadChildren: './places/offers/edit/edit.module#EditPageModule' },
   // { path: 'place-detail', loadChildren: './places/place-detail/place-detail.module#PlaceDetailPageModule' },
   // { path: 'place-bookings', loadChildren: './places/offers/place-bookings/place-bookings.module#PlaceBookingsPageModule' },
-  // { path: 'bookings', loadChildren: './bookings/bookings.module#BookingsPageModule' },
+  { path: 'bookings', loadChildren: './bookings/bookings.module#BookingsPageModule' },
 ];
 
 @NgModule({
