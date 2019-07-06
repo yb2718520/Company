@@ -17,7 +17,10 @@ import { environment } from '../environments/environment';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      rippleEffect: false,
+      mode: 'md'
+    }),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production

@@ -74,6 +74,28 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** pink **/
+  --ion-color-pink: #DB7093;
+  --ion-color-pink-rgb: 255, 182, 193;
+  --ion-color-pink-contrast: #DB7093;
+  --ion-color-pink-contrast-rgb: 255, 182, 193;
+  --ion-color-pink-shade: #DB7093;
+  --ion-color-pink-tint: #DB7093;
+
+  /** custom color **/
+  --ion-background-color: white;
+  --ion-text-color: tomato;
+  --ion-toolbar-color-activated: #FFC0CB;
+
+  --ion-toolbar-background: #FFB6C1; 
+  --ion-toolbar-color-activated: #FFB6C1;
+
+  /** Tab **/
+  --ion-tab-bar-background: #FFB6C1;
+  --ion-tab-bar-color: #DB7093;
+  --ion-tab-bar-color-activated: #FF1493;
+
 }
 
 .ios {
