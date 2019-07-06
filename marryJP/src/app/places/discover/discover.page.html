@@ -1,62 +1,85 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <!-- <ion-menu-button menu="m1"></ion-menu-button> -->
       <ion-button (click)="onOpenMenu()">
-        Open
+        <ion-icon name="menu"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>discover</ion-title>
+    <ion-title>結婚情報</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-segment (ionChange)="onFilterUpdate($event)">
-    <ion-segment-button value="all">All Places</ion-segment-button>
-    <ion-segment-button value="bookable">Bookable Places</ion-segment-button>
+  <!-- Segment Part -->
+  <ion-segment (ionChange)="onFilterUpdate($event)" color="pink">
+    <ion-segment-button value="all">全部</ion-segment-button>
+    <ion-segment-button value="male">男性のみ</ion-segment-button>
+    <ion-segment-button value="female">女性のみ</ion-segment-button>
   </ion-segment>
+
   <ion-grid>
+
+    <!-- First Info -->
     <ion-row>
       <ion-col size="12" size-sm="8" offset-sm="2" text-center>
         <ion-card>
+          <!-- Card Header -->
           <ion-card-header>
-            <ion-card-title>
-              {{ loadePlaces[0].title }}
-            </ion-card-title>
+            <ion-card-title>{{ marryInfo[0].name }}</ion-card-title>
             <ion-card-subtitle>
-              {{ loadePlaces[0].price | currency }}/ Night
+              <span *ngIf="marryInfo[0].sex === 'male'">男性</span>
+              <span *ngIf="marryInfo[0].sex === 'female'">女性</span>
+              /
+               <span>{{ marryInfo[0].country }}</span>
             </ion-card-subtitle>
           </ion-card-header>
-          <ion-img [src]="loadePlaces[0].imageUrl"></ion-img>
+
+          <!-- Image -->
+          <ion-item *ngIf="marryInfo[0].sex === 'male'">
+              <img src="/assets/images/male1.png" >
+          </ion-item>
+
+          <ion-item *ngIf="marryInfo[0].sex === 'female'">
+              <img src="/assets/images/female1.png">
+          </ion-item>
+
+          <!-- self Pr 50 words -->
           <ion-card-content>
             <p>
-              {{ loadePlaces[0].description }}
+              {{ marryInfo[0].selfpr }}
             </p>
           </ion-card-content>
+
+          <!-- To Detail Page -->
           <div text-right padding>
             <ion-button
               fill="clear"
               color="promary"
-              [routerLink]="['/', 'places', 'tabs', 'discover', loadePlaces[0].id]"
+              [routerLink]="['/', 'places', 'tabs', 'discover', marryInfo[0].id]"
             >
-            More
+            詳細情報
+            <ion-icon name="arrow-round-forward"></ion-icon>
           </ion-button>
           </div>
         </ion-card>
       </ion-col>
     </ion-row>
+
+    <!-- from 2nd Info -->
     <ion-row>
       <ion-col size="12" size-sm="8" offset-sm="2" text-center>
         <ion-list>
-          <ion-item *ngFor="let place of loadePlaces.slice(1)" [routerLink]="['/', 'places', 'tabs', 'discover', place.id]"
+          <ion-item *ngFor="let info of marryInfo.slice(1)" [routerLink]="['/', 'places', 'tabs', 'discover', info.id]"
           detail
           >
             <ion-thumbnail slot="start">
-              <ion-img [src]="place.imageUrl"></ion-img>
+              <img src="/assets/images/male2.png" *ngIf="info.sex === 'male'">
+              <img src="/assets/images/female2.png" *ngIf="info.sex === 'female'">
             </ion-thumbnail>
             <ion-label>
-              <h2>{{ place.title }}</h2>
-              <p>{{ place.description }}</p>
+              <h2>{{ info.name }}</h2>
+              <p *ngIf="info.sex === 'male'">男性 / {{ info.country }}</p>
+              <p *ngIf="info.sex === 'female'">女性 / {{ info.country }}</p>
             </ion-label>
           </ion-item>
         </ion-list>

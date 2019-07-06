@@ -8,7 +8,8 @@ const routes: Routes = [
         component: PlacesPage,
         children: [
             {
-                path: 'discover', children: [
+                path: 'discover',
+                children: [
                     {
                         path: '',
                         loadChildren: './discover/discover.module#DiscoverPageModule' // lazy load component
@@ -18,6 +19,10 @@ const routes: Routes = [
                         loadChildren: './place-detail/place-detail.module#PlaceDetailPageModule' // lazy load component
                     }
                 ]
+            },
+            {
+                path: 'report',
+                loadChildren: './report/report.module#ReportPageModule'
             },
             {
                 path: 'offers',
@@ -51,7 +56,8 @@ const routes: Routes = [
         path: '',
         redirectTo: '/places/tabs/discover',
         pathMatch: 'full'
-    }
+    },
+  { path: 'report', loadChildren: './report/report.module#ReportPageModule' }
 ];
 
 @NgModule({
