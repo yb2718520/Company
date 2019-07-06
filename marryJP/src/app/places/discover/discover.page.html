@@ -31,6 +31,8 @@
               <span *ngIf="marryInfo[0].sex === 'female'">女性</span>
               /
                <span>{{ marryInfo[0].country }}</span>
+              /
+              <span>{{ marryInfo[0].work }}</span>
             </ion-card-subtitle>
           </ion-card-header>
 
@@ -44,11 +46,11 @@
           </ion-item>
 
           <!-- self Pr 50 words -->
-          <ion-card-content>
+          <!-- <ion-card-content>
             <p>
               {{ marryInfo[0].selfpr }}
             </p>
-          </ion-card-content>
+          </ion-card-content> -->
 
           <!-- To Detail Page -->
           <div text-right padding>
@@ -78,8 +80,8 @@
             </ion-thumbnail>
             <ion-label>
               <h2>{{ info.name }}</h2>
-              <p *ngIf="info.sex === 'male'">男性 / {{ info.country }}</p>
-              <p *ngIf="info.sex === 'female'">女性 / {{ info.country }}</p>
+              <p *ngIf="info.sex === 'male'">男性 / {{ info.country }} / {{ info.work }}</p>
+              <p *ngIf="info.sex === 'female'">女性 / {{ info.country }} / {{ info.work }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
