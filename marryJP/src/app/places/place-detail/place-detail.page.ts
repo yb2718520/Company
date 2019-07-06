@@ -1,3 +1,4 @@
+import { MarryInfo } from './../../models/marryinfos.modal';
 import { CreateBookingComponent } from './../../bookings/create-booking/create-booking.component';
 import { Place } from './../place.model';
 import { PlacesService } from './../places.service';
@@ -12,6 +13,7 @@ import { NavController, ModalController, ActionSheetController } from '@ionic/an
 })
 export class PlaceDetailPage implements OnInit {
   place: Place;
+  info: MarryInfo;
 
   constructor(
     private router: Router,
@@ -22,13 +24,19 @@ export class PlaceDetailPage implements OnInit {
     private actionSheetController: ActionSheetController
   ) {}
 
+  /**
+   * OnInit Method.
+   */
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
+      // if no id then go to discover page.
       if (!paramMap.has('placeId')) {
         this.navCtrl.navigateBack('/places/tabs/discover');
         return;
       }
-      this.place = this.placesService.getPlace(paramMap.get('placeId'));
+      // get info id from param
+      console.log('id : ' + paramMap.get('placeId'));
+      this.info = this.placesService.getInfo(paramMap.get('placeId'));
     });
   }
 

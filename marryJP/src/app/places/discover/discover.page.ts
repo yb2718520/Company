@@ -23,7 +23,6 @@ export class DiscoverPage implements OnInit {
    * OnInit.
    */
   ngOnInit() {
-    this.loadePlaces = this.placesService.places;
     this.marryInfo = this.placesService.marryInfoListByflag;
   }
 
@@ -42,7 +41,6 @@ export class DiscoverPage implements OnInit {
    * filter value and update list.
    */
   onFilterUpdate(event: CustomEvent<SegmentChangeEventDetail>) {
-    // console.log(event.detail);
 
     // empty marry info list.
     this.initMarryInfoList();
