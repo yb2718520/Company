@@ -1,5 +1,7 @@
 {
   "name": "marryJP",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
