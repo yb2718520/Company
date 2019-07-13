@@ -4,7 +4,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'places', pathMatch: 'full' },
-  // for test
   { path: 'home', loadChildren: './places/places.module#PlacesPageModule' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
   {

@@ -25,11 +25,15 @@ const routes: Routes = [
                 loadChildren: './report/report.module#ReportPageModule'
             },
             {
-                path: 'offers',
+                path: 'forum',
                 children: [
                     {
                         path: '',
                         loadChildren: './offers/offers.module#OffersPageModule'
+                    },
+                    {
+                        path: ':forumId',
+                        loadChildren: './offers/detail/detail.module#DetailPageModule'
                     },
                     {
                         path: 'new',
@@ -57,7 +61,8 @@ const routes: Routes = [
         redirectTo: '/places/tabs/discover',
         pathMatch: 'full'
     },
-  { path: 'report', loadChildren: './report/report.module#ReportPageModule' }
+  { path: 'report', loadChildren: './report/report.module#ReportPageModule' },
+  { path: 'detail', loadChildren: './offers/detail/detail.module#DetailPageModule' }
 ];
 
 @NgModule({
