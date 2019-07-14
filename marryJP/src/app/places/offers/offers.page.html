@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button menu="m1"></ion-menu-button>
     </ion-buttons>
-    <ion-title>コミュニティ</ion-title>
+    <ion-title>community</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
     <ion-card *ngFor="let com of communityInfoList">
 
       <!-- Header -->
-      <ion-item color="default">
+      <ion-item color="default" [routerLink]="['/', 'places', 'tabs', 'forum', com.id]">
         <ion-thumbnail slot="start">
           <img src="{{ com.icon }}">
         </ion-thumbnail>
@@ -24,7 +24,7 @@
 
       <img src="{{ com.image }}">
 
-      <ion-card-content [routerLink]="['/', 'places', 'tabs', 'forum', com.id]">
+      <ion-card-content>
         {{ com.disp }} 
       </ion-card-content>
 
@@ -38,7 +38,7 @@
         <ion-col col-6>
           <ion-button fill="clear" size="small" icon-left>
             <ion-icon name="text"></ion-icon>
-            <div>{{ com.comments }} comments</div>
+            <div>{{ com.comments }} activites</div>
           </ion-button>
         </ion-col>
 
