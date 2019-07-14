@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/places/tabs/forum"></ion-back-button>
     </ion-buttons>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" (click)="createNewActivity()">
         <ion-icon name="add" size="large"></ion-icon>
     </ion-buttons>
     <ion-title>{{ communityDetail.title }}</ion-title>
