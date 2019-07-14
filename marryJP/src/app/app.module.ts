@@ -19,7 +19,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     IonicModule.forRoot({
       rippleEffect: false,
-      mode: 'md'
+      mode: 'ios'
     }),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

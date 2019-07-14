@@ -4,9 +4,13 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/places/tabs/forum"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-icon name="add" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{ communityDetail.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  this is forum detail 
+<ion-content padding>
+  {{ communityDetail.title }}
 </ion-content>

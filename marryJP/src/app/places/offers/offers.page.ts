@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OffersService } from './offers.service';
+import { CommunityEntity } from 'src/app/models/community.modal';
 
 @Component({
   selector: 'app-offers',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffersPage implements OnInit {
 
-  constructor() { }
+  communityInfoList: CommunityEntity[];
+
+  constructor(private communityService: OffersService) { }
 
   ngOnInit() {
+    this.communityInfoList = this.communityService.CommunityEntityByFlag;
   }
 
 }

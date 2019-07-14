@@ -3,50 +3,45 @@
     <ion-buttons slot="start">
       <ion-menu-button menu="m1"></ion-menu-button>
     </ion-buttons>
-    <ion-title>コミュニティ</ion-title>
+    <ion-title>community</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid>
+    <ion-card *ngFor="let com of communityInfoList">
 
-    <ion-card>
-      <ion-item color="default">
+      <!-- Header -->
+      <ion-item color="default" [routerLink]="['/', 'places', 'tabs', 'forum', com.id]">
         <ion-thumbnail slot="start">
-          <img src="https://cdn3.iconfinder.com/data/icons/hotel-and-restaurant-17/64/128-512.png">
+          <img src="{{ com.icon }}">
         </ion-thumbnail>
         <ion-label>
-            <h2 color="primary">SPORT GYM</h2>
-            <p>GYMに興味がある方はご参加を</p>
+          <h2 color="default">{{ com.title }}</h2>
+          <p>{{ com.titledisp }}</p>
         </ion-label>
       </ion-item>
 
-      <img src="https://images.squarespace-cdn.com/content/v1/5cc64dc7b2cf79907e2890db/1556607725559-B68HRHU3MWHUHIZ4P07Z/ke17ZwdGBToddI8pDm48kJxLRMli3nGQUfALFRPNRnd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0luj0xCD0oh5KMc0gpox0u9KLlQXx7eqCfd8jnybXvWqgNF8uu4mgxD-C41qFr7Gng/AO2Q0049-Edit.jpg?format=2500w">
+      <img src="{{ com.image }}">
 
-      <ion-card-content [routerLink]="['/', 'places', 'tabs', 'forum', 1234]">
-        FORUM DETAIL FORUM DETAIL FORUM DETAIL FORUM DETAIL FORUM DETAIL FORUM DETAIL FORUM DETAIL 
+      <ion-card-content>
+        {{ com.disp }} 
       </ion-card-content>
 
       <ion-row>
-        <ion-col col-4>
+        <ion-col col-6>
           <ion-button fill="clear" size="small" icon-left>
             <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
+            <div>{{ com.likes }} likes</div>
           </ion-button>
         </ion-col>
-        <ion-col col-4>
+        <ion-col col-6>
           <ion-button fill="clear" size="small" icon-left>
             <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
+            <div>{{ com.comments }} activites</div>
           </ion-button>
         </ion-col>
 
-        <ion-col col-4>
-          <ion-button fill="clear" size="small" icon-left>
-            <ion-icon name="person"></ion-icon>
-            <div>1人</div>
-          </ion-button>
-        </ion-col>
       </ion-row>
 
     </ion-card>

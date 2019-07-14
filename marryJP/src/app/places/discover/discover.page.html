@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="onOpenMenu()">
+      <ion-menu-button menu="m1"></ion-menu-button>
+      <!-- <ion-button (click)="onOpenMenu()">
         <ion-icon name="menu"></ion-icon>
-      </ion-button>
+      </ion-button> -->
     </ion-buttons>
     <ion-title>結婚情報</ion-title>
   </ion-toolbar>
@@ -13,8 +14,8 @@
   <!-- Segment Part -->
   <ion-segment (ionChange)="onFilterUpdate($event)" color="pink">
     <ion-segment-button value="all">全部</ion-segment-button>
-    <ion-segment-button value="male">男性のみ</ion-segment-button>
-    <ion-segment-button value="female">女性のみ</ion-segment-button>
+    <ion-segment-button value="male">男性</ion-segment-button>
+    <ion-segment-button value="female">女性</ion-segment-button>
   </ion-segment>
 
   <ion-grid>

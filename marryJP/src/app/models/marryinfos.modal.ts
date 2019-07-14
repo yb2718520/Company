@@ -1,3 +1,6 @@
+/**
+ * Marry Info Modal
+ */
 export class MarryInfo {
     constructor(
         public id: string,
