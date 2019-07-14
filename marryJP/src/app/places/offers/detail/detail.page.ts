@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
 import { OffersService } from '../offers.service';
 import { CommunityEntity } from 'src/app/models/community.modal';
+import { NewComponent } from 'src/app/modal/forum/new/new.component';
 
 @Component({
   selector: 'app-detail',
@@ -16,7 +17,8 @@ export class DetailPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private route: ActivatedRoute,
-    private offersService: OffersService
+    private offersService: OffersService,
+    private modalCtrl: ModalController
     ) { }
 
   ngOnInit() {
@@ -31,4 +33,23 @@ export class DetailPage implements OnInit {
     });
   }
 
+  /**
+   * create new activity.
+   */
+  createNewActivity() {
+    console.log('create new forum');
+
+    // modal control
+    this.modalCtrl.create({
+      component: NewComponent,
+      componentProps: {
+        selectedForum: this.communityDetail
+      }
+    }).then(modalEl => {
+      modalEl.present();
+      return modalEl.onDidDismiss();
+    }).then(resultDate => {
+      console.log(resultDate.data);
+    });
+  }
 }
