@@ -16,19 +16,28 @@
   </ion-segment>
 
   <ion-grid>
-
     <!-- First Info -->
     <ion-row>
-      <ion-col size="12" size-sm="8" offset-sm="2" text-center>
+      <ion-col size="12" size-sm="8" offset-sm="2">
         <ion-card>
           <!-- Card Header -->
           <ion-card-header>
-            <ion-card-title>{{ marryInfo[0].name }}</ion-card-title>
+            <ion-card-title
+              [routerLink]="[
+                '/',
+                'places',
+                'tabs',
+                'discover',
+                marryInfo[0].id
+              ]"
+            >
+              {{ marryInfo[0].name }}
+            </ion-card-title>
             <ion-card-subtitle>
               <span *ngIf="marryInfo[0].sex === 'male'">男性</span>
               <span *ngIf="marryInfo[0].sex === 'female'">女性</span>
               /
-               <span>{{ marryInfo[0].country }}</span>
+              <span>{{ marryInfo[0].country }}</span>
               /
               <span>{{ marryInfo[0].work }}</span>
             </ion-card-subtitle>
@@ -36,22 +45,13 @@
 
           <!-- Image -->
           <ion-item *ngIf="marryInfo[0].sex === 'male'">
-              <img src="/assets/images/male1.png" >
+            <img src="/assets/images/male1.png">
           </ion-item>
 
           <ion-item *ngIf="marryInfo[0].sex === 'female'">
-              <img src="/assets/images/female1.png">
+            <img src="/assets/images/female1.png">
           </ion-item>
-          <div text-right padding>
-            <ion-button
-              fill="clear"
-              color="promary"
-              [routerLink]="['/', 'places', 'tabs', 'discover', marryInfo[0].id]"
-            >
-            詳細情報
-            <ion-icon name="arrow-round-forward"></ion-icon>
-          </ion-button>
-          </div>
+          
         </ion-card>
       </ion-col>
     </ion-row>
@@ -60,17 +60,26 @@
     <ion-row>
       <ion-col size="12" size-sm="8" offset-sm="2" text-center>
         <ion-list>
-          <ion-item *ngFor="let info of marryInfo.slice(1)" [routerLink]="['/', 'places', 'tabs', 'discover', info.id]"
-          detail
+          <ion-item
+            *ngFor="let info of marryInfo.slice(1)"
+            [routerLink]="['/', 'places', 'tabs', 'discover', info.id]"
+            detail
           >
             <ion-thumbnail slot="start">
-              <img src="/assets/images/male2.png" *ngIf="info.sex === 'male'">
-              <img src="/assets/images/female2.png" *ngIf="info.sex === 'female'">
+              <img src="/assets/images/male2.png" *ngIf="info.sex === 'male'" />
+              <img
+                src="/assets/images/female2.png"
+                *ngIf="info.sex === 'female'"
+              />
             </ion-thumbnail>
             <ion-label>
               <h2>{{ info.name }}</h2>
-              <p *ngIf="info.sex === 'male'">男性 / {{ info.country }} / {{ info.work }}</p>
-              <p *ngIf="info.sex === 'female'">女性 / {{ info.country }} / {{ info.work }}</p>
+              <p *ngIf="info.sex === 'male'">
+                男性 / {{ info.country }} / {{ info.work }}
+              </p>
+              <p *ngIf="info.sex === 'female'">
+                女性 / {{ info.country }} / {{ info.work }}
+              </p>
             </ion-label>
           </ion-item>
         </ion-list>
