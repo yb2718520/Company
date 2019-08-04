@@ -43,10 +43,6 @@ const routes: Routes = [
                         path: 'edit/:placeId',
                         loadChildren: './offers/edit/edit.module#EditPageModule'
                     },
-                    // {
-                    //     path: ':placeId',
-                    //     loadChildren: './offers/offer-bookings/offer-bookings.module#OfferBookingPageModule'
-                    // },
                     {
                         path: '',
                         redirectTo: '/places/tabs/discover',
