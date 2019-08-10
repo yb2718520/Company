@@ -33,7 +33,16 @@ const routes: Routes = [
                     },
                     {
                         path: ':forumId',
-                        loadChildren: './offers/detail/detail.module#DetailPageModule'
+                        children: [
+                            {
+                                path: '',
+                                loadChildren: './offers/detail/detail.module#DetailPageModule'
+                            },
+                            {
+                                path: ':forumDetailId',
+                                loadChildren: './offers/detail/sub-detail/sub-detail.module#SubDetailPageModule'
+                            }
+                        ]
                     },
                     {
                         path: 'new',
@@ -58,7 +67,8 @@ const routes: Routes = [
         pathMatch: 'full'
     },
   { path: 'report', loadChildren: './report/report.module#ReportPageModule' },
-  { path: 'detail', loadChildren: './offers/detail/detail.module#DetailPageModule' }
+  { path: 'detail', loadChildren: './offers/detail/detail.module#DetailPageModule' },
+  { path: 'sub-detail', loadChildren: './offers/detail/sub-detail/sub-detail.module#SubDetailPageModule' }
 ];
 
 @NgModule({
