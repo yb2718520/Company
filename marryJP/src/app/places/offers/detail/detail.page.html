@@ -5,12 +5,30 @@
       <ion-back-button defaultHref="/places/tabs/forum"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end" (click)="createNewActivity()">
-        <ion-icon name="add" size="large"></ion-icon>
+      <ion-icon name="add" size="large"></ion-icon>
     </ion-buttons>
     <ion-title>{{ communityDetail.title }}</ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+      <ion-searchbar showCancelButton="focus"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  {{ communityDetail.title }}
+<ion-content class="form-background">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item no-padding *ngFor="let item of commnets" detail [routerLink]="['/', 'places', 'tabs', 'forum', formId, item.id]">
+            <ion-label>
+              <h2>{{ item.title ? item.title : "タイトル無" }}</h2>
+              <h3>{{ item.author }}</h3>
+              <p>{{ item.content }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
