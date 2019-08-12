@@ -1,3 +1,4 @@
+import { Comments } from './../commentDto';
 import { FormDetailService } from './../form-detail.service';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -14,6 +15,8 @@ export class SubDetailPage implements OnInit {
 
   subFormId: string;
   subFormDetial: DetailForm;
+  newComment: string;
+  comments: Array<Comments>;
 
   constructor(
     private navCtrl: NavController,
@@ -33,7 +36,17 @@ export class SubDetailPage implements OnInit {
       })
     ).subscribe((resp: DetailForm[]) => {
       this.subFormDetial = resp.find(item => item.id === Number(this.subFormId));
+      this.comments = this.subFormDetial.comments;
     });
+  }
+
+  sendMessage() {
+    console.log('send message button clicked');
+    this.comments.push({
+      author: 'user01',
+      title: this.newComment
+    });
+    this.newComment = '';
   }
 
 }

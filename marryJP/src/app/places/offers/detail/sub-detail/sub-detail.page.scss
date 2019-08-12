@@ -1,0 +1,15 @@
+.message-input {
+    width: 100%;
+    border: 1px solid tomato;
+    border-radius: 10px;
+    resize: none;
+    vertical-align: middle;
+    padding-top: 12px;
+    // border-left: 10px;
+    // border-right: 10px;
+}
+
+.msg-btn {
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+}
