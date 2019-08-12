@@ -13,7 +13,6 @@ const routes: Routes = [
     component: AuthPage
   }
 ];
-// 
 @NgModule({
   imports: [
     CommonModule,
