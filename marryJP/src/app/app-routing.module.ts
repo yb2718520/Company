@@ -23,6 +23,11 @@ const routes: Routes = [
   { path: 'chat',
     loadChildren: './chat/chat.module#ChatPageModule',
     canLoad: [AuthGuard]
+  },
+  // SEARCH PAGE
+  { path: 'search',
+    loadChildren: './places/search/search.module#SearchPageModule',
+    canLoad: [AuthGuard]
   }
   //
   // {
