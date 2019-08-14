@@ -119,4 +119,17 @@ export class PlacesService {
   getInfo(id: string) {
     return {...this.mockMarryInfo.find(p => p.id === id)};
   }
+  // use id for search
+  getId(id: string) {
+    // return this.mockMarryInfo.filter(p => p.id === id);
+    return this.mockMarryInfo.filter(p => p.id.toLowerCase().indexOf(id.toLowerCase())>-1);  
+  }
+
+  // use name for search
+  getName(name: string) {
+    // return this.mockMarryInfo.filter(p => p.name === name);
+    return this.mockMarryInfo.filter(p => p.name.toLowerCase().indexOf(name.toLowerCase())>-1);  
+
+
+  }
 }

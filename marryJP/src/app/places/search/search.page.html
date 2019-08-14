@@ -5,5 +5,51 @@
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <!-- Radio　機能 -->
+    <ion-radio-group allow-empty-selection="true" name="radio-group" (ionChange)="radioGroupChange($event)">
 
+      <ion-item *ngFor="let item of radio_list" (ionSelect)="radioSelect($event)"
+        >
+        <ion-label>{{item.text}}</ion-label>
+        <ion-radio slot="start" name="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}"
+          color="{{item.color}}" disabled="{{item.disabled}}"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+
+  <!-- テキスト　機能 -->
+  <ion-list>
+    <ion-input *ngIf="selectedRadioIcon" [(ngModel)]="inputValue" placeholder="input your search Id"></ion-input>
+    <ion-input *ngIf="!selectedRadioIcon" [(ngModel)]="inputValue" placeholder="input your search Name"></ion-input>
+
+  </ion-list>
+
+  <!-- 検索　機能 -->
+  <ion-button type="button" fill="solid" expand="block" (click)="onSearch()">Search</ion-button>
+
+  <!-- 検索結果 機能 -->
+  <ion-row>
+    <ion-col size="12" size-sm="8" offset-sm="2" text-center>
+      <ion-list>
+        <ion-item *ngFor="let info of marryInfo" [routerLink]="['/', 'places', 'tabs', 'discover', info.id]"
+          detail>
+          <ion-thumbnail slot="start">
+            <img src="/assets/images/male2.png" *ngIf="info.sex === 'male'" />
+            <img src="/assets/images/female2.png" *ngIf="info.sex === 'female'" />
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ info.name }}</h2>
+            <p *ngIf="info.sex === 'male'">
+              男性 / {{ info.country }} / {{ info.work }}
+            </p>
+            <p *ngIf="info.sex === 'female'">
+              女性 / {{ info.country }} / {{ info.work }}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
 </ion-content>
