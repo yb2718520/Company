@@ -14,10 +14,26 @@ const routes: Routes = [
                         path: '',
                         loadChildren: './discover/discover.module#DiscoverPageModule' // lazy load component
                     },
+                    // {
+                    //     path: ':placeId',
+                    //     loadChildren: './place-detail/place-detail.module#PlaceDetailPageModule' // lazy load component
+                    // },
+                    // memberchat 追加
                     {
-                        path: ':placeId',
-                        loadChildren: './place-detail/place-detail.module#PlaceDetailPageModule' // lazy load component
-                    }
+                        path:':placeId',
+                        children:[
+                            {
+                                path: '',
+                                loadChildren: './place-detail/place-detail.module#PlaceDetailPageModule'// lazy load component
+                            },
+                            {
+                                path: 'memberchat',
+                                loadChildren: './memberchat/memberchat.module#MemberchatPageModule' // lazy load component
+                            }
+                        ]
+
+                    },
+                 
                 ]
             },
             {

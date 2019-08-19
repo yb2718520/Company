@@ -75,6 +75,19 @@
             </ion-item>
           </ion-col>
         </ion-row>
+        <!-- kimhoo 20190818 add chat -->
+        <!-- チャット -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item no-lines 
+            [routerLink]="['/', 'places', 'tabs', 'discover', info.id,'memberchat']"
+            
+            > 
+              <ion-button type="button" fill="solid" expand="block" (click)="onChat()">Start Chat</ion-button> 
+              <!-- <ion-label>Start Chat</ion-label> -->
+            </ion-item>
+          </ion-col>
+        </ion-row>
       </ion-grid>
     </ion-card-content>
   </ion-card>

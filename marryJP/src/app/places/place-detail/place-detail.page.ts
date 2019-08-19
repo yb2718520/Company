@@ -69,6 +69,9 @@ export class PlaceDetailPage implements OnInit {
     // this.navCtrl.navigateBack('/places/tabs/discover');
   }
 
+  onChat(){
+  }
+
   openBookingModal(mode: 'Select' | 'Random') {
     console.log(mode);
 

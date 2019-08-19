@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'search',
     loadChildren: './places/search/search.module#SearchPageModule',
     canLoad: [AuthGuard]
-  }
+  },
   //
   // {
   //   path: '',
