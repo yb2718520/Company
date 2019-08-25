@@ -1,9 +1,16 @@
 <ion-header> </ion-header>
 
 <ion-content padding>
-  <div text-center mb-400>
+  <div text-center mb-5 mt-5>
     <h3>Marry In JAPAN</h3>
   </div>
+
+  <ion-grid>
+    <ion-row justify-content-center align-items-center style="width: 100%;">
+        <ion-img [src]="icon" class="icon-img"></ion-img>
+    </ion-row>
+  </ion-grid>
+  
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <ion-grid>
       <ion-row>

@@ -13,6 +13,8 @@ export class AuthPage implements OnInit {
   isLoading = false;
   isLogin = true;
 
+  icon = 'assets/icon/heart.png';
+
   constructor(
     private authService: AuthService,
     private router: Router,
