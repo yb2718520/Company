@@ -44,7 +44,8 @@ export class SubDetailPage implements OnInit {
     console.log('send message button clicked');
     this.comments.push({
       author: 'user01',
-      title: this.newComment
+      title: this.newComment,
+      date: '2019-01-01'
     });
     this.newComment = '';
   }
