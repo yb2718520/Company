@@ -30,16 +30,14 @@
 
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item *ngFor="let sub of comments">
-      <ion-avatar slot="start">
-        <img src="" />
-      </ion-avatar>
       <ion-text>
-        {{ sub?.title }}
+        <h4>{{ sub?.title }}</h4>
+        <p>{{ sub?.author }} | {{ sub?.date }}</p>
       </ion-text>
     </ion-item>
   </ion-list>
 
-  <ion-item-divider color="danger">
+  <ion-item-divider color="light">
     <ion-label>
       Add Your Comments:
     </ion-label>
@@ -58,7 +56,7 @@
   </ion-item>
   <ion-button
     expand="full"
-    color="success"
+    color="warning"
     [disabled]="newComment === ''"
     (click)="sendMessage()"
     >Commit</ion-button
