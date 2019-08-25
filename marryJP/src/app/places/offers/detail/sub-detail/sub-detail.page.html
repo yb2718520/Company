@@ -38,19 +38,29 @@
       </ion-text>
     </ion-item>
   </ion-list>
-</ion-content>
 
-<ion-footer>
-  <ion-toolbar color="right">
-    <ion-row align-item-center no-padding>
-      <ion-col size="10">
-        <textarea maxRow="3" [(ngModel)]="newComment" class="message-input"></textarea>
-      </ion-col>
-      <ion-col size="2">
-        <ion-button expand="block" fill="clear" color="primary" [disabled]="newComment === ''" class="msg-btn" (click)="sendMessage()">
-          <ion-icon name="ios-send" slot="icon-only"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
-</ion-footer>
+  <ion-item-divider color="danger">
+    <ion-label>
+      Add Your Comments:
+    </ion-label>
+  </ion-item-divider>
+
+  <!-- add comment -->
+  <ion-item>
+    <ion-label position="floating">Add Comments:</ion-label>
+    <ion-textarea
+      [(ngModel)]="newComment"
+      rows="6"
+      cols="20"
+      placeholder="Enter any notes here..."
+    >
+    </ion-textarea>
+  </ion-item>
+  <ion-button
+    expand="full"
+    color="success"
+    [disabled]="newComment === ''"
+    (click)="sendMessage()"
+    >Commit</ion-button
+  >
+</ion-content>
