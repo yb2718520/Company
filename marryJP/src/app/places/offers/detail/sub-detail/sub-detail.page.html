@@ -30,10 +30,10 @@
 
   <ion-list lines="full" class="ion-no-margin ion-no-padding">
     <ion-item *ngFor="let sub of comments">
-      <ion-text>
-        <h4>{{ sub?.title }}</h4>
-        <p>{{ sub?.author }} | {{ sub?.date }}</p>
-      </ion-text>
+      <ion-label>
+        <h2 class=mb-2>{{ sub?.title }}</h2>
+        <p style="color: black;">{{ sub?.author }} | {{ sub?.date }} |</p>
+      </ion-label>
     </ion-item>
   </ion-list>
 
@@ -45,7 +45,7 @@
 
   <!-- add comment -->
   <ion-item>
-    <ion-label position="floating">Add Comments:</ion-label>
+    <!-- <ion-label position="floating">Add Comments:</ion-label> -->
     <ion-textarea
       [(ngModel)]="newComment"
       rows="6"
