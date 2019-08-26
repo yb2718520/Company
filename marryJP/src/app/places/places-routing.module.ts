@@ -20,8 +20,8 @@ const routes: Routes = [
                     // },
                     // memberchat 追加
                     {
-                        path:':placeId',
-                        children:[
+                        path: ':placeId',
+                        children: [
                             {
                                 path: '',
                                 loadChildren: './place-detail/place-detail.module#PlaceDetailPageModule'// lazy load component
@@ -33,7 +33,6 @@ const routes: Routes = [
                         ]
 
                     },
-                 
                 ]
             },
             {
