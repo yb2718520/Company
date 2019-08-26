@@ -16,16 +16,25 @@
                 <div class="media">
                   <div class="media-left" *ngIf="comment.user.uid !== currentUser.uid">
                     <a href="#" class="icon">{{ comment.initial }}</a>
-                  </div>
-                  <div class="media-body">
-                    <div class="d-flex w-100 justify-content-between">
-                      <h4 class="media-heading">{{ comment.user.name }}</h4>
-                      <!-- <small class="media-date">{{ comment.date | commentDate }}</small> -->
+                      
+                    <div class="media-body">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h4 class="media-heading">{{ comment.user.name }}</h4>
+                        <!-- <small class="media-date">{{ comment.date | commentDate }}</small> -->
+                      </div>
+                      <pre>{{ comment.message }}</pre>
                     </div>
-                    <pre>{{ comment.message }}</pre>
                   </div>
+ 
                   <div class="media-right" *ngIf="comment.user.uid === currentUser.uid">
                     <a href="#" class="icon">{{ comment.initial }}</a>
+                    <div class="media-body">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h4 class="media-heading">{{ comment.user.name }}</h4>
+                        <!-- <small class="media-date">{{ comment.date | commentDate }}</small> -->
+                      </div>
+                      <pre>{{ comment.message }}</pre>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -47,7 +56,7 @@
           </form> -->
           <ion-row align-item-center no-padding>
             <ion-col size="10">
-              <textarea maxRow="3" [(ngModel)]="content" class="message-input" placeholder="メッセージを入力" tabindex="1"></textarea>
+              <textarea maxRow="100" [(ngModel)]="content" class="message-input" placeholder="メッセージを入力" tabindex="1" style="width: 90%"></textarea>
             </ion-col>
             <ion-col size="2">
               <ion-button expand="block" fill="clear" color="primary"  class="msg-btn" (click)="addComment(content)">
