@@ -31,9 +31,9 @@ export class SearchPage implements OnInit {
     console.log("radioGroupChange",event.detail);
     this.selectedRadioGroup = event.detail;
     
-    if(this.selectedRadioGroup.value==="radio_1"){
+    if(this.selectedRadioGroup.value==="radio_1") {
       this.selectedRadioIcon = true;
-    }else{
+    } else {
       this.selectedRadioIcon = false;
     }
   }
@@ -45,16 +45,28 @@ export class SearchPage implements OnInit {
   onSearch() {
 
     // use id for search
-    if(this.selectedRadioIcon){
+    if(this.selectedRadioIcon) {
       console.log("selectedRadioIcon: "+this.selectedRadioIcon);
 
-      this.marryInfo = this.placesService.getId(this.inputValue)
+      if(this.inputValue === undefined) {
+
+        this.marryInfo = this.placesService.marryInfoList;
+
+      }else{
+        this.marryInfo = this.placesService.getId(this.inputValue);
+      }
       console.log(this.marryInfo);
-    }else{
-      //use name for search
-      console.log("selectedRadioIcon: "+this.selectedRadioIcon);
+    } else {
 
-      this.marryInfo = this.placesService.getName(this.inputValue)
+      if(this.inputValue === undefined) {
+
+        this.marryInfo = this.placesService.marryInfoList;
+        
+      }else{
+        //use name for search
+        console.log("selectedRadioIcon: "+this.selectedRadioIcon);
+        this.marryInfo = this.placesService.getName(this.inputValue)
+      }
       console.log(this.marryInfo);
     }
   }
