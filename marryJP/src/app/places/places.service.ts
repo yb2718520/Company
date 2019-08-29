@@ -131,8 +131,5 @@ export class PlacesService {
     return this.mockMarryInfo.filter(p => p.name.toLowerCase().indexOf(name.toLowerCase())>-1);  
 
   }
-  get getAll() {
-    return this.mockMarryInfo;
-  }
 
 }
